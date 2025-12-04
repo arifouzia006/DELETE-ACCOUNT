@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete Account - PCOS Health Companion</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif; }
+        body { background: linear-gradient(135deg, #faf5ff 0%, #f3e5f5 100%); display: flex; justify-content: center; align-items: center; min-height: 100vh; padding: 20px; }
+        .container { background-color: white; padding: 40px; border-radius: 16px; box-shadow: 0 10px 30px rgba(125, 60, 152, 0.15); width: 100%; max-width: 500px; text-align: center; position: relative; overflow: hidden; }
+        .decoration { position: absolute; top: -30px; right: -30px; width: 150px; height: 150px; background-color: #e8d8f0; border-radius: 50%; z-index: 0; }
+        .decoration:before { content: "💜"; position: absolute; font-size: 80px; top: 35px; right: 35px; transform: rotate(-15deg); }
+        .content { position: relative; z-index: 1; }
+        .app-icon { font-size: 48px; margin-bottom: 15px; color: #7D3C98; }
+        h2 { color: #7D3C98; margin-bottom: 10px; font-size: 28px; }
+        .subtitle { color: #B573D0; margin-bottom: 25px; font-size: 16px; }
+        .warning-box { background-color: #fff3e0; border-left: 4px solid #fb8c00; padding: 15px; margin-bottom: 25px; text-align: left; border-radius: 8px; }
+        .warning-box h3 { color: #e65100; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+        input { width: 100%; padding: 14px; margin-bottom: 15px; border: 1px solid #d7bde2; border-radius: 10px; background-color: #faf5ff; }
+        .delete-btn { background: linear-gradient(to right, #d32f2f, #e57373); color: white; padding: 16px; border-radius: 10px; cursor: pointer; width: 100%; border: none; font-size: 18px; }
+        .confirmation-message { text-align: center; padding: 40px; }
+        .home-btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 20px;
+            background: #7D3C98;
+            color: white;
+            border-radius: 10px;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="decoration"></div>
+
+    <div id="deleteForm" class="content">
+        <div class="app-icon"><i class="fas fa-female"></i></div>
+        <h2>Delete Your Account</h2>
+        <p class="subtitle">We are sorry to see you leave your PCOS wellness journey.</p>
+
+        <div class="warning-box">
+            <h3><i class="fas fa-exclamation-triangle"></i> Important Notice</h3>
+            <p>Once deleted, all your medical and personal data such as symptom logs, cycle history, and progress insights will be permanently removed.</p>
+        </div>
+
+        <input type="email" id="email" placeholder="Enter your email" required>
+        <input type="password" id="password" placeholder="Enter your password" required>
+
+        <button class="delete-btn" onclick="showConfirmation()">
+            <i class="fas fa-trash-alt"></i> Delete My Account
+        </button>
+    </div>
+
+    <div id="confirmation" class="confirmation-message" style="display: none;">
+        <div class="app-icon"><i class="fas fa-check-circle" style="color: #7d3c98;"></i></div>
+        <h2>Account Deleted</h2>
+        <p>Your profile and all associated PCOS health data have been permanently erased.</p>
+        <a href="#" class="home-btn">Return to Home</a>
+    </div>
+</div>
+
+<script>
+function showConfirmation() {
+    document.getElementById("deleteForm").style.display = "none";
+    document.getElementById("confirmation").style.display = "block";
+}
+</script>
+
+</body>
+</html>
